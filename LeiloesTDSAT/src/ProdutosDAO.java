@@ -21,10 +21,11 @@ public class ProdutosDAO {
             prep.setInt(2, produto.getValor());
             prep.setString(3, produto.getStatus());
 
-            prep.executeUpdate();            
+            prep.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Produto cadastrado com sucesso!");
 
         } catch (Exception e) {
-            
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar produto: " + e.getMessage());
         } finally {
             try {
                 if (prep != null) {
