@@ -13,8 +13,33 @@ public class ProdutosDAO {
     ArrayList<ProdutosDTO> listagem = new ArrayList<>();
 
     public void cadastrarProduto(ProdutosDTO produto) {
+        try {
+            conn = new conectaDAO().connectDB();
+            String sql = "INSERT INTO produtos(nome, valor, status) values (?, ? ,?)";
+            prep = conn.prepareStatement(sql);
+            prep.setString(1, produto.getNome());
+            prep.setInt(2, produto.getValor());
+            prep.setString(3, produto.getStatus());
 
-        //conn = new conectaDAO().connectDB();
+            prep.executeUpdate();            
+
+        } catch (Exception e) {
+            
+        } finally {
+            try {
+                if (prep != null) {
+                    prep.close();
+                }
+            } catch (Exception ignored) {
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception ignored) {
+            }
+
+        }
     }
 
     public ArrayList<ProdutosDTO> listarProdutos() {
