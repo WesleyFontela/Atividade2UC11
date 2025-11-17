@@ -10,11 +10,13 @@ public class conectaDAO {
         Connection conn = null;
 
         try {
-
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/uc11", "root", "e99528431");
-
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://127.0.0.1:3306/uc11?useSSL=false&allowPublicKeyRetrieval=true",
+                    "root",
+                    "e99528431"
+            );
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Erro ConectaDAO" + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ConectaDAO: " + erro.getMessage());
         }
         return conn;
     }
