@@ -49,7 +49,9 @@ INSERT INTO `produtos` (`id`, `nome`, `valor`, `status`) VALUES
 --
 -- Índices para tabelas despejadas
 --
-
+select * from produtos;
+delete from produtos where nome = "Ps5";
+SET SQL_SAFE_UPDATES = 0;
 --
 -- Índices para tabela `produtos`
 --
